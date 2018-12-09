@@ -32,6 +32,8 @@ void checkSW1Button() {
       send(msgPercLED1.set(0), true);
       currentLED1level = 0;
     }
+    if (oldSW1Val != -1) // actual change only
+      oldSW2Val = -1;    // change in SW1 => force check SW2 status
   }
   oldSW1Val = val;
 }
@@ -59,6 +61,8 @@ void checkSW2Button() {
       send(msgPercLED2.set(0), true);
       currentLED2level = 0;
     }
+    if (oldSW2Val != -1) // actual change only
+      oldSW1Val = -1;    // change in SW2 => force check SW1 status
   }
   oldSW2Val = val;
 }
